@@ -1,3 +1,5 @@
-Extension Protocol 
+# Other 
+
+### Extension Protocol 
 
 в расширениях для протоколов можно делать готовые функциональные методы  

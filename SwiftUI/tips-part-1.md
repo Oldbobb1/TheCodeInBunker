@@ -3,6 +3,7 @@
 ### Top 10
 
 ### №1 
+```swift 
 ZStack {
 Color.mint.opacity(0.5)
 Rectangle()
@@ -15,7 +16,7 @@ frame(width: 100, height: 100)
 •position(CGPoint(x: 250, y: 250)) ? выравнивание по позиции
 }
 •frame(width: 350, height: 350)
-
+```
 ### №2
 
 SwiftUl совет
@@ -23,6 +24,7 @@ SwiftUl совет
 Используйте модификатор badgeProminence (), чтобы отображать бейджи с меньшей или большей заметностью.
 Например, для элементов, требующих действий (например, непрочитанных уведомлений),
 передайте .increased, чтобы привлечь больше внимания.
+```swift 
 List {
 Text("Inbox")
 .badge(2)
@@ -31,14 +33,14 @@ Text("Drafts")
 .badge(5)
 .badgeProminence(.decreased)
 }
-
+```
 
 ### №3
 
 SwiftUl Совет
 Используйте . safeAreaInset(), чтобы закрепить важные кнопки, например «Продолжить»
 на экранах оплаты, внизу, позволяя основному контенту прокручиваться.
-
+```swift 
 import SwiftUl
 struct ContentView: View {
 var body: some View {
@@ -48,10 +50,11 @@ ActionView
 }
 }
 }
-
+```
 ### №4 
 
 //Смешивание цветов - лучше градиента
+```swift 
 struct ContentView: View {
     var body: some View {
         ZStack {
@@ -60,8 +63,9 @@ struct ContentView: View {
         }
     }
 }
-
+```
 //изменение цвета через слайдер
+```swift 
 struct ContentView: View {
     @State private var fraction = 0.5
     
@@ -73,12 +77,12 @@ struct ContentView: View {
             .animation(.default, value: fraction)
     }
 }
-
+```
 ### №5 
 
 Разделитель с текстом 
 
-
+```swift 
 struct DividerLine: View {
     var body: some View {
         HStack {
@@ -88,8 +92,9 @@ struct DividerLine: View {
         }
     }
 }
-
+```
 //применение 
+```swift 
 struct DividerWithText: View {
     var body: some View {
         HStack {
@@ -104,12 +109,12 @@ struct DividerWithText: View {
         .padding(.trailing) 
     }
 }
-
+```
 
 ### №6 
 
 изменение размера через слайдер 
-
+```swift
 struct ContentView: View {
     
     @State private var frameSize: CGFloat = 350
@@ -162,13 +167,13 @@ struct ContentView: View {
         .padding()
     }
 }
-
+```
 
 ### №7
 
 Используй .compositingGroup(), чтобы объединить несколько вью в одну композиционную группу. Это позволяет применять эффекты, такие как blur или opacity, ко всей группе как к единому слою.
 without
-
+```swift 
 VStack {
 RoundedRectangle(cornerRadius: 25)
 .fill(.mint)
@@ -184,9 +189,9 @@ color: .black.opacity(0,4),
 radius: 30, 
 y: 30
 )
-
+```
 with
-
+```swift 
 VStack {
 RoundedRectangle(cornerRadius: 25)
 .fill(.mint)
@@ -203,17 +208,17 @@ color: .black.opacity(0,4),
 radius: 30, 
 y: 30
 )
-
+```
 
 ### №8 
 
 Совет по SwiftUl
 Используйте .redacted (reason: .place
 holder), чтобы показать заглушку (временное представление), пока ваш контент загружается.
-
+```swift 
 ContentView()
 .redacted (reason: .placeholder)
-
+```
 
 
 ### №9 
@@ -222,6 +227,7 @@ ContentView()
 Легко добавляйте действия при свайпе для строк в List, используя модификатор
 swipeActions ()
 Также можно указать направление свайпа с помощью параметра edge.
+```swift 
 List {
 Text("Update Xcode")
 swipeActions(edge: leading) {
@@ -235,14 +241,14 @@ Button("Edit", systemimage: "pencil") {}
 .tint(.orange)
 }
 }
-
+```
 
 
 ### №10
 
 Светящийся border 
 
-
+```swift 
 Text("PREMIUM")
 .font(.system(.largeTitle, weight: bold))
 overlay {
@@ -251,3 +257,4 @@ RoundedRectangle(cornerRadius: 15)
 shadow(color: Color.teal.opacity (0.9), radius: 10)
 frame(width: 225, height: 75)
 } 
+```

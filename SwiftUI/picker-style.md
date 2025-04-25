@@ -1,5 +1,5 @@
-Picker Style 
-
+# Picker Style 
+```swift 
 enum AppTheme: String, CaseIterable, Identifiable {
     case light = "light"
     case dark = "dark"
@@ -7,7 +7,8 @@ enum AppTheme: String, CaseIterable, Identifiable {
     
     var id: String { self.rawValue }
 }
-
+```
+```swift 
 struct ContentView: View {
     @State private var selectedColor: Color = .red
     @State private var selectedTheme: AppTheme = .system
@@ -61,3 +62,4 @@ struct ContentView: View {
         }
     }
 }
+```

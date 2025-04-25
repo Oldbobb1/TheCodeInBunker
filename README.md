@@ -4,7 +4,7 @@ A personal collection of notes, cheat sheets, code snippets, and useful informat
 
 ## Struct
 
-- Other 
+- Others 
 - Interview questions
 - OOP
 - POP 
@@ -16,9 +16,9 @@ A personal collection of notes, cheat sheets, code snippets, and useful informat
 - UIKit 
 - SwiftUI
 
-## How use 
-
-Each folder contains thematic ".md", ".swift", ".html", and other files with explanations. I try to accompany code samples with brief comments and explanations.
+<!--## How use -->
+<!---->
+<!--Each folder contains thematic ".md", ".swift", ".html", and other files with explanations. I try to accompany code samples with brief comments and explanations.-->
 
 ## What's that for?
 

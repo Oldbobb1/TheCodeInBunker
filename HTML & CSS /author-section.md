@@ -25,7 +25,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid var(--dark-theme-color); //цвет указать 
+    border: 2px solid var(--dark-theme-color); /* aad your color*/
 }
 .author-section h3 {
     color: #C0C0C0;
@@ -41,9 +41,9 @@
     background: #d0d0d0;
 }
 [data-theme='light'] .author-section img {
-    border: 2px solid var(--light-theme-color); //цвет указать 
+    border: 2px solid var(--light-theme-color); /* aad your color*/
 }
 [data-theme='light'] .author-section h3 {
-    color: var(--light-theme-color); //цвет указать 
+    color: var(--light-theme-color); /* aad your color*/
 }
 ```

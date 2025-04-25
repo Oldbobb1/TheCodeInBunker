@@ -1,12 +1,14 @@
 # List in SwiftUI 
 //list в swiftui возможность выбора/редактирования/ удаления + фоновый цвет
 различные стили и функционал в лист 
+```swift
 struct Person: Identifiable {
     let id = UUID()
     let name: String
     let age: Int
 }
- 
+```
+```swift 
 struct DynamicListView: View {
     
     var people: [Person] = [
@@ -22,7 +24,6 @@ struct DynamicListView: View {
         }
     }
 }
-
 
 struct GroupedListView: View {
     
@@ -121,3 +122,4 @@ struct CustomBackgroundListView: View {
             .scrollContentBackground(.hidden)
     }
 }
+```

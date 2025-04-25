@@ -1,9 +1,10 @@
-Swift Style Code
+# Swift Style Code
 
 
 - https://google.github.io/swift/#function-declarations
 
-* Пример стиля написания кода: 
+### Пример стиля написания кода
+```swift
     public  static func makeLabel(
         text: String? = nil,
         fontSize: CGFloat,
@@ -26,7 +27,7 @@ Swift Style Code
         label.layer.cornerRadius = cornerRadius ?? 0
         return label
     }
-
+```
 - отступы после запятой
 Пример: 
 (width: 10, height: 20)

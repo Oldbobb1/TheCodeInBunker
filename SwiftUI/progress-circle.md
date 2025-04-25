@@ -1,5 +1,5 @@
 # Progress Circle
-
+```swift
 struct ContentView: View {
     @State var degrees: Double = 0
     @State var progres: CGFloat = 0
@@ -49,3 +49,4 @@ struct ContentView: View {
         }
     }
 }
+```

@@ -1,8 +1,7 @@
 анимация элементов в scrollview 
 2 варианта анимации 
-
+```swift
 struct ContentView1: View {
-    
     var body: some View {
         // The scrolling container
         ScrollView (.vertical){
@@ -40,10 +39,10 @@ struct ContentView1: View {
             }
             .padding()
         }
-    }
-    
+    } 
 }
-
+```
+```swift
 struct ColorView: View {
     let index: Int
     
@@ -57,9 +56,9 @@ struct ColorView: View {
                     .foregroundColor(.white)
             )
     }
-    
     func colorForIndex(_ index: Int) -> Color {
         let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .pink, .teal, .cyan, .brown]
         return colors[index % colors.count]
     }
 }
+```

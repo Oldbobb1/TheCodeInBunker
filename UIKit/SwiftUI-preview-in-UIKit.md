@@ -1,5 +1,8 @@
-Возможность показа без запуска симулятора 
+# SwiftUI Preview in UIKit 
+Preview Option "UIViewController" in UIKit.
 
+#### ViewControllersPreview 
+```swift
 import SwiftUI
 
 struct ViewControllersPreview: UIViewControllerRepresentable {
@@ -8,20 +11,30 @@ struct ViewControllersPreview: UIViewControllerRepresentable {
         self.viewControllerGenerator = viewControllerGenerator
     }
     func makeUIViewController(context: Context) -> some UIViewController {
-        viewControllerGenerator ()
+        viewControllerGenerator()
     }
     func updateUIViewController(
         _ uiViewController: UIViewControllerType,
         context: Context
     ) {}
 }
+```
 
-использование 
+#### Utilization
+```swift
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+}
 
 struct ViewControllerProvider: PreviewProvider {
     static var previews: some View {
         ViewControllersPreview {
-            SettingViewController()
+            UIViewController()
         }.edgesIgnoringSafeArea(.all)
     }
 }
+```

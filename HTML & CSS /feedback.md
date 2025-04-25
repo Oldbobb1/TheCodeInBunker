@@ -22,20 +22,16 @@
                     <form action="/submit_form" method="post">
                         <label for="name">Your Name:</label>
                         <input type="text" id="name" name="name" required>
-            
                         <label for="email">Your email:</label>
                         <input type="email" id="email" name="email" required>
-            
                         <label for="message">Your message:</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
-            
                         <button type="submit">Send</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div id="footer"></div>
 </body>
 </html>
 ```
@@ -45,7 +41,6 @@ body {
     line-height: 1.6; 
     margin: 0; 
 }
-
 .contact-animation {
     position: fixed;
     top: 0;
@@ -55,7 +50,6 @@ body {
     z-index: 0;
     pointer-events: none;
 }
-
 .contact-card {
     position: relative;
     z-index: 1;
@@ -63,14 +57,12 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
 }
-
 .contact-section {
     position: relative;
     margin: 6rem auto 2rem;
     margin-bottom: 10rem;
     overflow: hidden;
 }
-
 .contact-content {
     position: relative;
     max-width: 800px;
@@ -83,26 +75,21 @@ body {
     flex-direction: column;
     box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
 }
-
 [data-theme="light"] .contact-content {
     background: #C0C0C0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-
 h1 {
     text-align: center;
     color: #333333;
 }
-
 form label {
     display: block;
     margin: 15px 0 5px;
     color: #555555;
 }
-
 form input,
 form textarea {
-    /* width: 160%; */
     width: 90%;
     padding: 20px;
     margin-bottom: 15px;
@@ -110,7 +97,6 @@ form textarea {
     border-radius: 25px;
     box-sizing: border-box;
 }
-
 form button {
     display: block;
     width: 20%;
@@ -121,7 +107,6 @@ form button {
     border-radius: 25px;
     cursor: pointer;
 }
-
 form button:hover {
     background-color: #0056b3;
 }

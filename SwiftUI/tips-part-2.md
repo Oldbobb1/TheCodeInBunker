@@ -1,22 +1,23 @@
 # Tips part-2
 
 ### №1 Открытие экрана наполовину 
-
+```swift 
  .presentationDetents([.fraction(0.5)]) -> экран по умолчанию открывается на половину 
-
+```
 а прописывать после созданной кнопки -> 
+```swift 
 Button { }
  .sheet(isPresented: $subscription) {
                             SignInView()
                                 .presentationDetents([.fraction(0.5)])
                         }
-
+```
 
 ### №2 
 Автозаполнение 
 
 аналогично тому как приходит код для приложения  
-
+```swift 
 import SwiftUl
 struct ContentView: View {
 @State private var code = ""
@@ -27,11 +28,12 @@ TextField ("Enter Verification Code", text: Scode)
 .padding()
 }
 }
-
+```
 
 ### №3
 
 //подходит для ios и ipad
+```swift 
 import SwiftUI
 
 struct ContentView1: View {
@@ -224,3 +226,4 @@ struct WaterConditionView: View {
         Text("HEllo word")
     }
 }
+```
