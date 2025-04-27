@@ -1,4 +1,6 @@
 # Progress Circle
+### ContentView 
+Creates a circular progress bar. It consists of two circles: background and progression, which is filled with a gradient.
 ```swift
 struct ContentView: View {
     @State var degrees: Double = 0

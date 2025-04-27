@@ -1,5 +1,6 @@
 # Other 
-
 ### Extension Protocol 
-
-в расширениях для протоколов можно делать готовые функциональные методы  
+In protocol extensions, you can:
+- Implement ready-made functional methods.
+- Make protocol methods and properties optional.
+- Provide default implementations for protocol methods to avoid code duplication.

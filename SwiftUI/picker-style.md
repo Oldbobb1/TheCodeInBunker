@@ -1,14 +1,22 @@
 # Picker Style 
+### AppTheme
+Defines three application themes: light, dark, and system. It implements the Identifiable protocol for easy use in the interface.
 ```swift 
+import SwiftUI
+
 enum AppTheme: String, CaseIterable, Identifiable {
     case light = "light"
     case dark = "dark"
     case system = "default"
-    
+
     var id: String { self.rawValue }
 }
 ```
+### ContentView
+A basic kind of application that allows the user to select a color and theme. It includes a ColorPicker for color selection and multiple Pickers for theme selection with different display styles (automatic, inline, palette and wheel).
 ```swift 
+import SwiftUI
+
 struct ContentView: View {
     @State private var selectedColor: Color = .red
     @State private var selectedTheme: AppTheme = .system
@@ -29,22 +37,22 @@ struct ContentView: View {
                 }
             }
             Section {
-                Picker("Select Theme", selection: $selectedTheme ) {
+                Picker("Select Theme", selection: $selectedTheme) {
                     ForEach(AppTheme.allCases) { theme in
                         Text(theme.rawValue).tag(theme)
                     }
                 }
-//                .pickerStyle(.automatic)
+                //                .pickerStyle(.automatic)
             }
-                Picker("Select Theme", selection: $selectedTheme ) {
-                    ForEach(AppTheme.allCases) { theme in
-                        Text(theme.rawValue).tag(theme)
-                    }
+            Picker("Select Theme", selection: $selectedTheme) {
+                ForEach(AppTheme.allCases) { theme in
+                    Text(theme.rawValue).tag(theme)
                 }
-                .pickerStyle(.inline)
-//                .labelsHidden() //скрывает текст
+            }
+            .pickerStyle(.inline)
+            //                .labelsHidden() //hidden text
             Section {
-                Picker("Select Theme", selection: $selectedTheme ) {
+                Picker("Select Theme", selection: $selectedTheme) {
                     ForEach(AppTheme.allCases) { theme in
                         Text(theme.rawValue).tag(theme)
                     }
@@ -52,7 +60,7 @@ struct ContentView: View {
                 .pickerStyle(.palette)
             }
             Section {
-                Picker("Select Theme", selection: $selectedTheme ) {
+                Picker("Select Theme", selection: $selectedTheme) {
                     ForEach(AppTheme.allCases) { theme in
                         Text(theme.rawValue).tag(theme)
                     }

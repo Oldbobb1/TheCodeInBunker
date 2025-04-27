@@ -1,28 +1,37 @@
-# 8 советов по производительности Swift, которые я узнал после многих лет программирования
+# 8 Swift productivity tips
+### 1. Use structures, not classes.
+Swift encourages the use of structures instead of classes whenever possible. Structures are placed on the stack, which can lead to performance improvements due to faster access and reduced memory overhead.<br>
+**Instead of**:
+```swift
+import UIKit
 
-### 1. Отдавайте предпочтение структурам, а не классам
-Swift поощряет использование структур вместо классов, когда это возможно. Структуры размещаются в стеке, что может привести к повышению производительности за счет более быстрого доступа и снижения накладных расходов памяти.
-Вместо:
 class User {
     var name: String
     var age: Int
 }
 
 init(name: String, age: Int) {
-        self.name = name
-        self.age = age
-    }
-Используйте:
+    self.name = name
+    self.age = age
+}
+```
+**Use**:
+```swift
+import UIKit
+
 struct User {
     var name: String
     var age: Int
 }
-Почему?
-Структуры обеспечивают семантику копирования, что может предотвратить непредвиденные побочные эффекты и сделать ваш код более безопасным. Кроме того, компилятор может оптимизировать структуры более эффективно, чем классы, что приводит к росту производительности.
+```
+**Why?**<br>
+Structs provide copy semantics, which can prevent unforeseen side effects and make your code safer. In addition, the compiler can optimize structures more efficiently than classes, resulting in performance gains.
+### 2. Lazy properties for resource-intensive initializations.
+Lazy properties are only initialized the first time they are accessed, making them an effective way to save resources. This approach is especially useful for properties whose initialization is computationally intensive and may not be required immediately.<br>
+**Example**:
+```swift
+import UIKit
 
-2. Используйте ленивые свойства для ресурсоемких инициализаций
-Ленивые свойстваинициализируются только при первом обращении к ним, что делает их эффективным способом экономии ресурсов. Такой подход особенно полезен для свойств, инициализация которых требует больших вычислительных затрат и может потребоваться не сразу.
-Пример:
 class DataManager {
     lazy var expensiveData: [String] = {
         // Simulating a heavy data-loading process
@@ -33,28 +42,38 @@ class DataManager {
         return data
     }()
 }
-Почему?
-Откладывание инициализации дорогих данных до тех пор, пока они не понадобятся, сокращает время начальной загрузки приложения, что приводит к более быстрому и плавному взаимодействию с пользователем.
+```
+**Why?**<br>
+Postponing the initialization of expensive data until it is needed reduces the initial load time of the application, resulting in a faster and smoother user experience.
+### 3. Optimizing arrays by preallocating the volume.
+When dealing with arrays that grow dynamically, preallocating their size can significantly improve performance by reducing the overhead of multiple memory reallocations.<br>
+**Instead of**:
+```swift
+import UIKit
 
-3. Оптимизация массивов путем предварительного распределения объема
-При работе с массивами, которые динамически растут, предварительное распределение их объема может значительно повысить производительность за счет снижения накладных расходов на многократное перераспределение памяти.
-Вместо этого:
 var numbers = [Int]()
 for i in 0..<1000 {
     numbers.append(i)
 }
-Используйте такой код:
+```
+**Use this code**:
+```swift
+import UIKit
+
 var numbers = [Int]()
 numbers.reserveCapacity(1000)
 for i in 0..<1000 {
     numbers.append(i)
 }
-Почему?
-Предварительное распределение объема позволяет массиву заранее выделить достаточно памяти для хранения предполагаемого количества элементов. Это минимизирует операции изменения размера и копирования, которые могут быть дорогостоящими, особенно в циклах, критичных к производительности.
+```
+**Why?**<br>
+Volume preallocation allows the array to allocate enough memory in advance to store the expected number of elements. This minimizes resizing and copy operations, which can be costly, especially in performance-critical loops.
+### 4. Leverage Swift's parallelism with Async/Await.
+Swift's async/await syntax revolutionizes parallel programming by allowing tasks to run asynchronously without blocking the main thread. This modern approach simplifies code and dramatically improves I/O performance.<br>
+**Example**:
+```swift
+import UIKit
 
-4. Используйте параллелизм Swift с помощью Async/Await
-Синтаксис async/await в Swift революционизируетпараллельное программирование, позволяя задачам выполняться асинхронно, не блокируя основной поток. Этот современный подход упрощает код и значительно повышает производительность при выполнении операций ввода-вывода.
-Пример:
 func fetchData() async throws -> Data {
     let url = URL(string: "https://api.example.com/data")!
     let (data, _) = try await URLSession.shared.data(from: url)
@@ -71,26 +90,36 @@ func loadData() {
         }
     }
 }
-Почему?
-Использование async/await гарантирует, что ваше приложение сможет обрабатывать сетевые запросы или другие трудоемкие задачи без зависания пользовательского интерфейса, что приведет к более плавному взаимодействию с пользователем.
+```
+**Why?**<br>
+Using async/await ensures that your application can handle network requests or other time-consuming tasks without the UI hanging, resulting in a smoother user experience.
+### 5. Minimize the use of Optional in performance-critical code.
+Optional are invaluable for safely handling missing values, but overusing them in code can lead to unnecessary overhead.<br>
+**Instead of**:
+```swift
+import UIKit
 
-5. Сведите к минимуму использование Optional в коде, критичном к производительности
-Optional неоценимы для безопасной обработки отсутствия значений, но их чрезмерное использование в коде может привести к ненужным накладным расходам.
-Вместо этого:
 func calculate(_ value: Int?) -> Int {
     guard let unwrapped = value else { return 0 }
     return unwrapped * 2
 }
-Используйте:
+```
+**Use**:
+```swift
+import UIKit
+
 func calculate(_ value: Int) -> Int {
     return value * 2
 }
-Почему?
-Избегая ненужных Optional, вы избавляетесь от затрат на разворачивание и проверку на nil, что приводит к ускорению выполнения.	Используйте Optional только в тех случаях, когда отсутствие значения является значимым и неизбежным.
+```
+**Why?**<br>
+By avoiding unnecessary Optionals, you avoid the cost of unrolling and checking for nil, which results in faster execution.	Use Optional only when the absence of a value is significant and unavoidable.
+### 6. Use data types to ensure thread safety.
+Swift's Value Types, such as structures and enumerations, are inherently thread-safe due to copy-on-assignment behavior. This makes them ideal for concurrent environments.<br>
+**Example**:
+```swift
+import UIKit
 
-6. Используйте типы данных для обеспечения потокобезопасности
-Типы данных (Value Types) Swift, такие как структуры и перечисления, по своей сути являются потокобезопасными благодаря copy-on-assignment поведению. Это делает их идеальными для параллельных сред.
-Пример:
 struct Point {
     var x: Double
     var y: Double
@@ -102,25 +131,31 @@ func updatePoint(_ point: Point) -> Point {
     newPoint.y += 20
     return newPoint
 }
-Почему?
-Типы значений предотвращают гонки данных, гарантируя, что каждый поток работает со своей копией данных, что устраняет необходимость в сложных механизмах синхронизации.
+```
+**Why?**<br>
+Value types prevent data races by ensuring that each thread works with its own copy of the data, eliminating the need for complex synchronization mechanisms.
+### 7. Optimization of operations with strings using String API.
+Working efficiently with strings is key to avoiding performance bottlenecks in your application. Swift String API provides optimized methods for different tasks.<br>
+**Instead**:
+```swift
+import UIKit
 
-7. Оптимизируйте операции со строками с помощью String API
-Эффективная работа со строками — это ключ к тому, чтобы избежать узких мест в производительности вашего приложения. Swift String API предоставляет оптимизированные методы для различных задач.
-Вместо:
 var combined = ""
 for word in words {
     combined += word + " "
 }
-Используйте:
+```
+**Use**:
+```swift
+import UIKit
+
 let combined = words.joined(separator: " ")
-Почему?
-Использование joined(separator:)минимизирует выделение ресурсов на промежуточные строки и повышает производительность по сравнению с ручной конкатенацией в циклах.
-Совет
-Используйте встроенные методы Swift для упрощения и оптимизации работы со строками.
-
-8. Профилирование и бенчмаркинг с помощью Xcode Instruments
-Ни один путь оптимизации не может быть полным без анализа данных. Xcode Instrumentsпредоставляет мощные инструменты для выявления и устранения узких мест в производительности.
-Зачем?
-Профилирование позволяет сосредоточиться на реальных проблемах производительности, а не на догадках, что приводит к эффективным и действенным оптимизациям.
-
+```
+**Why?**<br>
+Using joined(separator:)minimizes resource allocation for intermediate strings and improves performance over manual concatenation in loops.<br>
+**Совет**
+Use Swift's built-in methods to simplify and optimize your work with strings.
+### 8. Profiling and benchmarking with Xcode Instruments.
+No optimization path is complete without data analysis. Xcode Instruments provides powerful tools for identifying and eliminating performance bottlenecks.<br>
+**Why?**<br>
+Profiling allows you to focus on real performance issues rather than guesswork, leading to efficient and effective optimizations.

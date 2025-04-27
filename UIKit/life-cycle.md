@@ -1,5 +1,4 @@
 # Life cycle
-
 - application(_:didFinishLaunchingWithOptions:)<br>
 Called at application startup, for initial setup.
 ```swift
@@ -46,9 +45,7 @@ func applicationWillTerminate(_ application: UIApplication) {
     // Completing tasks
 }
 ```
-
 # Life cycle UIViewController
-
 - viewDidLoad()<br>
 Called after the view is loaded.
 ```swift

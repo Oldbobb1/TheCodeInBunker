@@ -1,14 +1,12 @@
 # Other
 ### In setting limits
-- translatesAutoresizingMaskIntoConstraints = false ( по умолчанию = true ) 
-
+- translatesAutoresizingMaskIntoConstraints = false ( default = true ) 
 ### Code layout 
 It is necessary to remove all references to the storyboard from the project:
 - Remove the storyboard file from the project.
 - In Info.plist, remove the Main storyboard file base name key.
 - Check the code for references to storyboard and remove them.
 - Configure SceneDelegate to initialize the root controller without storyboard.
-
 ### UITabBar via class
 <!-- This is an example - don't do it this way, but do it through separate classes.  -->
 ```swift
@@ -53,7 +51,6 @@ class MainTabBarController: UITabBarController {
     }
 }
 ```
-
 ### Сustomizing the interface theme 
 ```swift
 import UIKit 
