@@ -4,7 +4,7 @@
 ```swift 
  .presentationDetents([.fraction(0.5)])
 ```
-**Use**:
+### Use
 ```swift 
 import SwiftUI
 
@@ -216,7 +216,7 @@ struct ContentView: View {
     }
 }
 ```
-####
+###
 ```swift
 import SwiftUI
 

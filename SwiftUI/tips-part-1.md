@@ -88,7 +88,7 @@ struct DividerLine: View {
     }
 }
 ```
-- **Use**:
+### Use
 ```swift 
 import SwiftUI
 

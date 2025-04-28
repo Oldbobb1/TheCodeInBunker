@@ -1,4 +1,4 @@
-# The code in bunker 
+# 📚 The code in bunker 
 A personal collection of notes, cheat sheets, code snippets, and useful information gathered during the learning process. The repository serves as a reference and repository for reusable solutions.
 ### Struct
 - Others 
